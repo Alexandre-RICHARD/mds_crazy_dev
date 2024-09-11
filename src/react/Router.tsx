@@ -1,16 +1,25 @@
 import React from "react";
-import { createBrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
+import { ExploreProfile } from "./components/ExploreProfile/ExploreProfile";
 import { Homepage } from "./components/Homepage/Homepage";
+import { Premium } from "./components/Premium/Premium";
 
-type RouterType = {
-  path: string;
-  element: React.JSX.Element;
+export const Router = (): React.JSX.Element => {
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={<Homepage />}
+      />
+      <Route
+        path="/explore-profile"
+        element={<ExploreProfile />}
+      />
+      <Route
+        path="/upgrade-premium"
+        element={<Premium />}
+      />
+    </Routes>
+  );
 };
-
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Homepage />,
-  },
-] as RouterType[]);
