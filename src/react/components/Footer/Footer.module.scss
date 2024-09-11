@@ -6,7 +6,7 @@
   justify-content: space-between;
   padding: 5px;
   align-items: center;
-  background-color: $darkColor_One;
+  background: linear-gradient(0deg, $darkColor_One_semi_transparant 0%, $darkColor_One_semi_transparant 90%, $transparent 100%);
   
   p {
     color: $lightColor_One;
