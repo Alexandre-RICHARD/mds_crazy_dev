@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import { ExploreProfile } from "./components/ExploreProfile/ExploreProfile";
 import { Homepage } from "./components/Homepage/Homepage";
 import { Premium } from "./components/Premium/Premium";
+import { Profile } from "./components/Profile/Profile";
 
 export const Router = (): React.JSX.Element => {
   return (
@@ -19,6 +20,10 @@ export const Router = (): React.JSX.Element => {
       <Route
         path="/upgrade-premium"
         element={<Premium />}
+      />
+      <Route
+        path="/profile"
+        element={<Profile />}
       />
     </Routes>
   );

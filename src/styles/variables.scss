@@ -1,4 +1,17 @@
-@import "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap";
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
 
-$headerHeight: 90px;
-$footerHeight: 45px;
+@font-face {
+  font-family: "RobofanFree";
+  src: url("../assets//fonts/Robofan_Free.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$headerHeight: 65px;
+$footerHeight: 30px;
+
+$darkColor_One: #141414;
+
+$lightColor_One: #dedede;
+
+$premiumColor: #b69c1a;

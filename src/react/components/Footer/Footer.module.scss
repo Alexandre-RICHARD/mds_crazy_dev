@@ -2,4 +2,20 @@
 
 .footer {
   height: $footerHeight;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  align-items: center;
+  background-color: $darkColor_One;
+  
+  p {
+    color: $lightColor_One;
+    font-size: 14px;
+    font-weight: 300;
+
+    &.warning {
+      font-size: 12px;
+      font-style: oblique
+    }
+  };
 }

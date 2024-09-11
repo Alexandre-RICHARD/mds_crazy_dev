@@ -1,3 +1,6 @@
+import type { UserData } from "./userData.type";
+
 export type DefaultStoreType = {
-  something: string;
+  isUserConnected: boolean;
+  userData?: UserData;
 };

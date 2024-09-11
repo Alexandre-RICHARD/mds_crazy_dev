@@ -4,10 +4,11 @@
 .app {
   min-height: 100svh;
   max-height: 100svh;
-  font-family: "Poppins", sans-serif;
+  font-family: "Exo", sans-serif;
 
   .main {
     min-height: calc(100svh - ($headerHeight + $footerHeight));
+    height: calc(100svh - ($headerHeight + $footerHeight));
     max-height: calc(100svh - ($headerHeight + $footerHeight));
   }  
 }
