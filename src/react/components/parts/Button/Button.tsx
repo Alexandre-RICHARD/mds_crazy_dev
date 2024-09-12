@@ -5,6 +5,11 @@ import styles from "./Button.module.scss";
 
 type Props = {
   label: string;
+  stylesType:
+    | "styles_color"
+    | "styles_white"
+    | "styles_border_color"
+    | "styles_border_white";
 } & (
   | {
       type: "button";
@@ -22,31 +27,40 @@ type Props = {
 
 export const Button = ({
   type,
+  stylesType,
   label,
   onClick,
   link,
-  isDisabled = false,
+  isDisabled,
 }: Props): React.JSX.Element | null => {
   if (type === "button") {
     return (
-      <button
-        type="button"
-        className={`${styles.button_custom} ${isDisabled ? styles.disable : ""}`}
-        onClick={isDisabled ? undefined : onClick}
+      <div
+        className={`${styles.button_custom_border} ${isDisabled ? styles.disable : ""} ${styles[stylesType]}`}
       >
-        {label}
-      </button>
+        <button
+          type="button"
+          className={`${styles.button_custom} ${isDisabled ? styles.disable : ""} ${styles[stylesType]}`}
+          onClick={isDisabled ? undefined : onClick}
+        >
+          {label}
+        </button>
+      </div>
     );
   }
   if (type === "link") {
     return (
-      <NavLink
-        to={link}
-        className={`${styles.button_custom} ${isDisabled ? styles.disable : ""}`}
-        onClick={isDisabled ? undefined : onClick}
+      <div
+        className={`${styles.button_custom_border} ${isDisabled ? styles.disable : ""} ${styles[stylesType]}`}
       >
-        {label}
-      </NavLink>
+        <NavLink
+          to={link}
+          className={`${styles.button_custom} ${isDisabled ? styles.disable : ""} ${styles[stylesType]}`}
+          onClick={isDisabled ? undefined : onClick}
+        >
+          {label}
+        </NavLink>
+      </div>
     );
   }
   return null;

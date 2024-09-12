@@ -1,34 +1,77 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { useShallow } from "zustand/react/shallow";
 
-import { AccountAccess } from "./components/AccountAccess/AccountAccess";
-import { ExploreProfile } from "./components/ExploreProfile/ExploreProfile";
-import { Homepage } from "./components/Homepage/Homepage";
-import { Premium } from "./components/Premium/Premium";
-import { Profile } from "./components/Profile/Profile";
+import { useCombinedStore } from "../store/combined.store";
+import { AccountAccess } from "./components/Pages/AccountAccess/AccountAccess";
+import { ExploreProfile } from "./components/Pages/ExploreProfile/ExploreProfile";
+import { Homepage } from "./components/Pages/Homepage/Homepage";
+import { HomepageConnected } from "./components/Pages/HomepageConnected/HomepageConnected";
+import { Premium } from "./components/Pages/Premium/Premium";
+import { Profile } from "./components/Pages/Profile/Profile";
 
 export const Router = (): React.JSX.Element => {
+  const [isUserConnected] = useCombinedStore(
+    useShallow((state) => [state.isUserConnected]),
+  );
+
   return (
     <Routes>
       <Route
         path="/"
-        element={<Homepage />}
+        element={isUserConnected ? <HomepageConnected /> : <Homepage />}
       />
       <Route
         path="/account"
-        element={<AccountAccess />}
+        element={
+          isUserConnected ? (
+            <Navigate
+              replace
+              to="/"
+            />
+          ) : (
+            <AccountAccess />
+          )
+        }
       />
       <Route
         path="/explore-profile"
-        element={<ExploreProfile />}
+        element={
+          isUserConnected ? (
+            <ExploreProfile />
+          ) : (
+            <Navigate
+              replace
+              to="/"
+            />
+          )
+        }
       />
       <Route
         path="/upgrade-premium"
-        element={<Premium />}
+        element={
+          isUserConnected ? (
+            <Premium />
+          ) : (
+            <Navigate
+              replace
+              to="/"
+            />
+          )
+        }
       />
       <Route
         path="/profile"
-        element={<Profile />}
+        element={
+          isUserConnected ? (
+            <Profile />
+          ) : (
+            <Navigate
+              replace
+              to="/"
+            />
+          )
+        }
       />
     </Routes>
   );

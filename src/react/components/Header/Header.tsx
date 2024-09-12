@@ -90,13 +90,15 @@ export const Header = (): React.JSX.Element => {
           <div className={styles.account_buttons_container}>
             <Button
               type="link"
-              link="/account/login"
-              label="S'inscrire"
+              link="/account/register"
+              label="Se connecter"
+              stylesType="styles_border_white"
             />
             <Button
               type="link"
-              link="/account/register"
-              label="Se connecter"
+              link="/account/login"
+              label="S'inscrire"
+              stylesType="styles_color"
             />
           </div>
         )}
